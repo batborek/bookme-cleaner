@@ -1,92 +1,48 @@
-import React, { useContext, useEffect } from "react";
 
-import Menu from "../components/menu";
 
-export const Rooms = () => {
-  const {
-    setLoading,
-    getRooms,
-    totalKing,
-    kingRentedRoom,
-    availableKing,
-    singleRentedRoom,
-    totalSingle,
-    availableSingle,
-    setCurrentPage,
-  } = useContext(CoreContext);
 
-  useEffect(() => {
-    setLoading(false);
-    getRooms();
 
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+export const Cleaner = () => {
+
 
   return (
     <>
-      <Menu />
-      <div className="totalRoom">
-        <div className="myTable">
-          <table style={{ width: "100%" }}>
-            <caption>Rooms</caption>
-            <tbody>
-              <tr className="border_bottom">
-                <th>Type</th>
-                <th>Rented</th>
-                <th>Available</th>
-                <th>Total</th>
-              </tr>
-              <tr>
-                <td>Single room</td>
-                <td>{availableSingle}</td>
-                <td>{singleRentedRoom}</td>
-                <td>{totalSingle}</td>
-              </tr>
-              <tr>
-                <td>King size</td>
-                <td>{availableKing}</td>
-                <td>{kingRentedRoom}</td>
-                <td>{totalKing}</td>
-              </tr>
-            </tbody>
-          </table>
-         <div className="forwardButtons"> 
-         <button
+    
+    <div className="myTable">
+      <table style={{ width: "100%" }}>
+        <caption>Cleaner</caption>
+        <tbody>
+          <tr className="border_bottom">
+            <th>All Rooms</th>
+            <th>Cleaned Rooms</th>
+            <th>Uncleaned Rooms</th>
+          </tr>
+          <tr>
+            <td>Single room</td>
+            <td>10</td>
+            <td>22</td>
+          </tr>
+          <tr>
+            <td>King size</td>
+            <td>15</td>
+            <td>5</td>
+          </tr>
+        </tbody>
+      </table>
+      <button
           type="button"
-          className="forwardButton2"
+          className="forwardButton2 clean-room"
           disabled={false}
-          onClick={() => {setCurrentPage(0)}}
+          //onClick={() => {setCurrentPage(6)}}
         >
           <b>
-            <b>Add a room</b>
-          </b>
-        </button> <button
-          type="button"
-          className="forwardButton2 edit-room"
-          disabled={false}
-          onClick={() => {setCurrentPage(5)}}
-        >
-          <b>
-            <b>Edit a room</b>
+            <b>Clean a room</b>
           </b>
         </button>
-        <button
-          type="button"
-          className="forwardButton2 remove-room"
-          disabled={false}
-          onClick={() => {setCurrentPage(6)}}
-        >
-          <b>
-            <b>Remove a room</b>
-          </b>
-        </button>
-         </div>
-        </div>
+    </div>
 
-      </div>
-     
-    </>
+  </>
   );
 };
 
-export default Rooms;
+export default Cleaner;
